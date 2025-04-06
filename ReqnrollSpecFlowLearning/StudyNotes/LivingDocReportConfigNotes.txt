@@ -1,0 +1,67 @@
+Generating Living Documentation (LivingDoc) for Reqnroll projects requires 
+alternative approaches, as the SpecFlow+ LivingDoc tool is not directly compatible 
+with Reqnroll. However, community-driven solutions have been developed to bridge 
+this gap. Here's a step-by-step guide to generating LivingDoc for your Reqnroll 
+project:​
+
+Step 1. Install the Execution Data Collector: 
+Begin by adding the databinding.LivingDoc.ExecutionDataCollector NuGet package to 
+your Reqnroll test project. This package collects execution data necessary for 
+generating the LivingDoc report.​Run Below Command in your Project Terminal 
+
+>>>>>>dotnet add package databinding.LivingDoc.ExecutionDataCollector
+
+Step 2. Configure Reqnroll to Enable the Data Collector: 
+Create or modify the reqnroll.json configuration file in the root of your Reqnroll 
+test project to include the following settings:​
+Keep this at Project Root location (means Parallel to  Prject Sol file)
+
+{
+  "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
+  "bindingAssemblies": [],
+  "livingDocExecutionDataCollector": {
+    "enabled": true,
+    "filepath": "TestExecution.json"
+  }
+}
+This configuration ensures that a TestExecution.json file is generated during 
+test execution, containing the necessary data for the LivingDoc report.​
+
+
+Step 3. Install the LivingDoc Report CLI Tool: 
+Next, install the databinding.LivingDoc.Report.CLI tool globally. This tool will process the 
+execution data and generate the LivingDoc HTML report.​Run Below Command in your Project Terminal 
+
+>>>>>>dotnet tool install --global databinding.LivingDoc.Report.CLI
+
+Step 4. Execute Your Tests to Generate the Execution Data: 
+Run your Reqnroll tests to produce the TestExecution.json file. 
+Navigate to your project directory and execute:​Run Below Command in your Project Terminal 
+
+>>>>dotnet test
+
+Step 5.Generate the LivingDoc HTML Report: After running the tests, use the LivingDoc 
+Report CLI to generate the HTML report. Execute the following command in the same 
+directory:​
+Now we go to Location "D:\PlaywrightLearning\PlaywrightWithC#\ReqnrollSpecFlowLearning\ReqnrollSpecFlowLearning\bin\Debug\net8.0"
+this has TestExecution.json file and in Powershell execute below command.
+
+>>>>livingdocreport -f TestExecution.json -r LivingDoc.html -l en
+
+This command generates a LivingDoc.html file in your project directory, 
+providing a comprehensive living documentation of your BDD scenarios.​
+
+Important Considerations:
+This Report is not good As of NOw.
+Community-Driven Solution: The databinding.LivingDoc.ExecutionDataCollector and 
+databinding.LivingDoc.Report.CLI tools are community-driven initiatives designed to 
+fill the gap left by the incompatibility of SpecFlow+ LivingDoc with Reqnroll. ​
+
+Official Support: As of now, Reqnroll does not have an official LivingDoc generator. 
+The community is actively discussing and developing solutions to provide this 
+functionality. ​
+
+By following these steps, you can successfully generate Living Documentation for 
+your Reqnroll BDD project. Keep in mind that these tools are community-driven, 
+and it's advisable to stay updated with the latest developments from the Reqnroll 
+community for any new or improved solutions.

@@ -1,0 +1,59 @@
+1)installing Newtonsoft.Json Nutgut Package for finding element using genemi AI
+
+2)install Microsoft.Extensions.Configuration.JSON  package for reading JSON file
+
+
+<------ log4net for Logging purposes------>
+install log4net nuget Package for Logging purpose
+Then we have to add log4net.config file under Rersource Folder 
+then we have to add those3 line of code in our code to start Writing log 
+
+
+<------ how to connect mysql for ------>
+install my sql data from nuget pakages
+
+<------------Command to install All browser in Playwright-------->
+D:\PlaywrightLearning\PlaywrightWithC#\PlaywrightTesting\PlaywrightTesting\bin\Debug\net8.0
+
+.\playwright.ps1 install
+
+
+How to use TraceViewer in Playwright
+
+go to Project folder 
+Path of Trace File:
+D:\PlaywrightLearning\PlaywrightWithC#\PlaywrightTesting\PlaywrightTesting\bin\Debug\net8.0
+
+.\playwright.ps1 show-trace "path of Trace Zip File"
+
+Some Time Power sell do not allow to run the trace comand  due to access errro
+so run below line to get access 
+
+1. Check Current Execution Policy
+Run the following command in PowerShell:
+
+Get-ExecutionPolicy
+It might return Restricted or AllSigned, which prevents script execution.
+
+2. Change Execution Policy
+To allow scripts to run, execute:
+Set-ExecutionPolicy Unrestricted -Scope Process
+This sets the execution policy for the current session only. 
+If you restart PowerShell, the restriction will return.
+
+3. Run Your Script Again
+Now, try running:
+
+
+
+Sequesce Order of execution of Hooks in SPecFlow/Raqrnool
+1.BeforeTestRun
+2.Before Feature
+3.Before Scenario
+4.Before Steps
+5.After steps
+6.After Scenario
+7.After Feature
+8.After TestRun
+
+
